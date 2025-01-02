@@ -1,0 +1,13 @@
+:8181
+
+reverse_proxy {
+	dynamic a {
+		dial_timeout 100ms
+		name greet
+		port 8282
+		refresh 1ms
+	}
+
+	lb_policy round_robin
+	lb_retries 1
+}
