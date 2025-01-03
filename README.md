@@ -153,6 +153,7 @@ These reverse proxies have been tested:
 
 - [Caddy](https://caddyserver.com)
 - [HAProxy](https://www.haproxy.org) ([config](haproxy/haproxy.cfg))
+- [nginx](https://nginx.org) ([config](nginx/nginx.conf))
 
 See the [demo code](scripts/demo.sh) for an example each.
 

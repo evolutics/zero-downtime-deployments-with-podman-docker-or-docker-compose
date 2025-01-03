@@ -20,6 +20,11 @@ case "${reverse_proxy}" in
       --publish 127.0.0.1:8080:8181 \
       --volume ./haproxy:/usr/local/etc/haproxy:ro docker.io/haproxy:3.1
     ;;
+  nginx)
+    "${engine}" run --detach --name reverse-proxy --network test-net \
+      --publish 127.0.0.1:8080:8181 \
+      --volume ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro docker.io/nginx:1
+    ;;
   *)
     echo "Unknown reverse proxy: ${reverse_proxy}"
     exit 1
