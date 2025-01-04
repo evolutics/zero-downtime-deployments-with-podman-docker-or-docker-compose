@@ -151,9 +151,9 @@ the service names (like `greet`) resolving to the respective containers.
 
 These reverse proxies have been tested:
 
-- [Caddy](https://caddyserver.com)
-- [HAProxy](https://www.haproxy.org) ([config](haproxy/haproxy.cfg))
-- [nginx](https://nginx.org) ([config](nginx/nginx.conf))
+- [Caddy](https://caddyserver.com) (see [config](#demo))
+- [HAProxy](https://www.haproxy.org) (see [config](haproxy/haproxy.cfg))
+- [nginx](https://nginx.org) (see [config](nginx/nginx.conf))
 
 See the [demo code](scripts/demo.sh) for an example each.
 
