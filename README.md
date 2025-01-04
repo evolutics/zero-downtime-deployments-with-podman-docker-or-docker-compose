@@ -14,7 +14,8 @@ traffic to the service container(s) via their identical domain name `greet`:
 
 ```mermaid
 flowchart LR
-    localhost:8080 -->|:8181| proxy[Container **reverse-proxy**]
+    localhost:8080 -->|:8181| proxy["`Container
+    **reverse-proxy**`"]
     proxy -->|greet:8282| hi0["`Container **hi-0**
     _#quot;Hi from A#quot;_`"]
     proxy -->|greet:8282| hi1["`Container **hi-1**
