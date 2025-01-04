@@ -13,10 +13,12 @@ provided service always available. For that purpose, a reverse proxy forwards
 traffic to the service container(s) via their identical domain name `greet`:
 
 ```mermaid
-flowchart TD
-    localhost:8080 -->|:8181| proxy[Container reverse-proxy]
-    proxy -->|greet:8282| hi0[Container hi-0]
-    proxy -->|greet:8282| hi1[Container hi-1]
+flowchart LR
+    localhost:8080 -->|:8181| proxy[Container **reverse-proxy**]
+    proxy -->|greet:8282| hi0["`Container **hi-0**
+    _#quot;Hi from A#quot;_`"]
+    proxy -->|greet:8282| hi1["`Container **hi-1**
+    _#quot;Hi from B#quot;_`"]
 ```
 
 At any given time, at least one service container is available by making sure
