@@ -26,13 +26,14 @@ At any given time, at least one service container is available by making sure
 their lifetimes overlap:
 
 ```
-____________________________________
+___________________________________.
 Container hi-0                      Stop
-                        ____________________________________
+                        .___________________________________
                         Start                 Container hi-1
 
-                        ^^^^^^^^^^^^
+                        ------------
                         Overlap
+"Hi from A"                                      "Hi from B"
 ```
 
 ## Demo
