@@ -15,10 +15,10 @@ case "${reverse_proxy}" in
       --publish 127.0.0.1:8080:8181 \
       docker.io/caddy:2 caddy reverse-proxy --from :8181 --to greet:8282
     ;;
-  caddy-dynamic)
+  caddy/dynamic | caddy/static)
     "${engine}" run --detach --name reverse-proxy --network test-net \
       --publish 127.0.0.1:8080:8181 \
-      --volume ./caddy:/etc/caddy docker.io/caddy:2
+      --volume "./${reverse_proxy}:/etc/caddy" docker.io/caddy:2
     ;;
   haproxy)
     "${engine}" run --detach --name reverse-proxy --network test-net \
