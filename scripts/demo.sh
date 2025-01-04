@@ -59,5 +59,5 @@ kill %%
 
 grep --quiet '^Hi from A$' test.log
 grep --quiet '^Hi from B$' test.log
-grep '^Error ' test.log && exit 1
+grep --invert-match --quiet '^Hi from ' test.log && exit 1
 :
