@@ -116,7 +116,7 @@ Run the whole demo automatically with the script `scripts/demo.sh`.
 For a more automatic, declarative workflow, the same demo can be achieved in
 Docker Compose with the support of [Kerek](https://github.com/evolutics/kerek).
 
-Use this Compose file:
+To do so, use this Compose file:
 
 ```yaml
 # compose.yaml
