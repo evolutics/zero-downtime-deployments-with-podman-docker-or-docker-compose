@@ -1,16 +1,16 @@
-# Zero-downtime deployments with Podman (or Docker)
+# Zero-downtime deployments with Podman, Docker, or Docker Compose
 
-The motivation is to deploy an updated version of a container without service
-interruption. We want to keep things light and only use Podman.
+The aim is to deploy an updated version of a container without service
+interruption. We want to keep things light and only use Podman or Docker.
 
-This works equally well with Docker, just replace `podman` by `docker` in the
-commands below.
+Alternatively, **Docker Compose** may be used as shown in the
+[example](#docker-compose).
 
 ## Overview
 
-Say we want to replace a service container `hi-0` by `hi-1`. To keep the service
-always available during such a deployment, a reverse proxy forwards traffic to
-the service container(s) via their identical domain name `greet`:
+We want to replace a service container `hi-0` by `hi-1` and meanwhile keep the
+provided service always available. For that purpose, a reverse proxy forwards
+traffic to the service container(s) via their identical domain name `greet`:
 
 ```mermaid
 flowchart TD
@@ -34,7 +34,8 @@ Container hi-0                      Stop
 
 ## Demo
 
-The following shows how to do such a deployment interactively.
+Here is how to do such a deployment interactively with **Podman**. It works the
+same for **Docker**; just replace `podman` by `docker` in the commands below.
 
 1. First, for the containers to reach each other, set up a **network** with
 
@@ -101,7 +102,7 @@ The following shows how to do such a deployment interactively.
 
    Test it: `curl localhost:8080` returns "Hi from _B_" now.
 
-You can tear down the demo resources with
+You can tear down the above resources with
 
 ```bash
 podman rm --force hi-0 hi-1 reverse-proxy
@@ -112,10 +113,10 @@ Run the whole demo automatically with the script `scripts/demo.sh`.
 
 ## Docker Compose
 
-For a more automatic, declarative workflow, above can be achieved in Compose
-with the support of [Kerek](https://github.com/evolutics/kerek).
+For a more automatic, declarative workflow, the same demo can be achieved in
+Docker Compose with the support of [Kerek](https://github.com/evolutics/kerek).
 
-The Compose file for the demo is this:
+Use this Compose file:
 
 ```yaml
 # compose.yaml
@@ -139,6 +140,9 @@ respects the configured update order. In this case, a new container of the
 `greet` service is started before the old container is stopped, resulting in the
 desired overlap of their lifetimes.
 
+Note that Docker Compose conveniently manages a container network for us, with
+the service names (like `greet`) resolving to the respective containers.
+
 ## Tested reverse proxies
 
 These reverse proxies have been tested:
@@ -150,5 +154,5 @@ See the [demo code](scripts/demo.sh) for an example each.
 
 ## Known issues
 
-If possible, use the very latest Podman version as earlier versions may not pass
-above demo; Podman 5.2.3 for instance has shown intermittent DNS issues.
+Podman 5.2.3 has shown intermittent DNS issues. If possible, use the latest
+Podman version.
