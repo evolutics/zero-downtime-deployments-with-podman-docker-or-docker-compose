@@ -147,8 +147,8 @@ the service names (like `greet`) resolving to the respective containers.
 
 These reverse proxies have been tested:
 
-- Caddy
-- HAProxy ([config](haproxy/haproxy.cfg))
+- [Caddy](https://caddyserver.com)
+- [HAProxy](https://www.haproxy.org) ([config](haproxy/haproxy.cfg))
 
 See the [demo code](scripts/demo.sh) for an example each.
 
