@@ -57,7 +57,7 @@ kill %%
 "${engine}" rm --force hi-0 hi-1 reverse-proxy
 "${engine}" network rm test-net
 
-grep --quiet 'Hi from A' test.log
-grep --quiet 'Hi from B' test.log
-grep Error test.log && exit 1
+grep --quiet '^Hi from A$' test.log
+grep --quiet '^Hi from B$' test.log
+grep '^Error ' test.log && exit 1
 :
