@@ -2,7 +2,7 @@
 
 set -o errexit -o nounset -o pipefail
 
-cd "$(git rev-parse --show-toplevel)"
+cd -- "$(dirname -- "$0")/.."
 
 declare -r engine="${1-podman}"
 declare -r reverse_proxy="${2-caddy}"
