@@ -3,10 +3,9 @@
 The aim is to deploy an updated version of a container without service
 interruption. We want to keep things light and only use Podman or Docker.
 
-Alternatively, **Docker Compose** may be used as shown in the
-[example](#docker-compose).
+Alternatively, **Docker Compose** may be used [as shown](#docker-compose).
 
-## Overview
+## Approach
 
 We want to replace a service container `hi-0` by `hi-1` and meanwhile keep the
 provided service always available. For that purpose, a reverse proxy forwards
@@ -47,7 +46,7 @@ same for **Docker**; just replace `podman` by `docker` in the commands below.
    podman network create test-net
    ```
 
-1. Run the **reverse proxy** on this network with
+1. Run a **reverse proxy** on this network with
 
    ```bash
    podman run --detach --name reverse-proxy --network test-net \
@@ -57,6 +56,8 @@ same for **Docker**; just replace `podman` by `docker` in the commands below.
 
    This Caddy instance forwards traffic from port 8080 on localhost to the
    domain name `greet` in the container network (port 8282).
+
+   Feel free to use another [reverse proxy](#reverse-proxy).
 
 1. **Start version A** of your service with
 
@@ -147,7 +148,7 @@ desired overlap of their lifetimes.
 Note that Docker Compose conveniently manages a container network for us, with
 the service names (like `greet`) resolving to the respective containers.
 
-## Tested reverse proxies
+## Reverse proxy
 
 These reverse proxies have been tested:
 
