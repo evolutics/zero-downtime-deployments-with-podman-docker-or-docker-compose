@@ -71,7 +71,7 @@ same for **Docker**; just replace `podman` by `docker` in the commands below.
    Crucially, we give it a network alias `greet`, which the reverse proxy can
    then resolve.
 
-   Test it: `curl localhost:8080` returns "Hi from _A_" now.
+   Test it: `curl localhost:8080` returns _"Hi from A"_ now.
 
    To see the following update in action, you could keep a test loop running in
    a separate shell session with
@@ -105,7 +105,7 @@ same for **Docker**; just replace `podman` by `docker` in the commands below.
 
    With that, the update is done.
 
-   Test it: `curl localhost:8080` returns "Hi from _B_" now.
+   Test it: `curl localhost:8080` returns _"Hi from B"_ now.
 
 You can tear down the above resources with
 
