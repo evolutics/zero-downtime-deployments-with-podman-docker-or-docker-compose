@@ -1,7 +1,8 @@
 # Zero-downtime deployments with Podman, Docker, or Docker Compose
 
 The aim is to deploy an updated version of a container without service
-interruption. We want to keep things light and only use Podman or Docker.
+interruption. We want to keep things light and only use **Podman** or
+**Docker**.
 
 Alternatively, **Docker Compose** may be used [as shown](#docker-compose).
 
