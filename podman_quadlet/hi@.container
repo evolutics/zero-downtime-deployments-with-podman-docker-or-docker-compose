@@ -1,0 +1,8 @@
+[Unit]
+Description=Hi %i
+
+[Container]
+Image=docker.io/hashicorp/http-echo:1.0
+Exec=-listen=:8282 -text='Hi from %i'
+Network=test-net.network
+NetworkAlias=greet

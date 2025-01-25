@@ -1,0 +1,8 @@
+[Unit]
+Description=Reverse proxy
+
+[Container]
+Image=docker.io/caddy:2
+Exec=caddy reverse-proxy --from :8181 --to greet:8282
+Network=test-net.network
+PublishPort=127.0.0.1:8080:8181

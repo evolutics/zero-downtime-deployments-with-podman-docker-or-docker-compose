@@ -4,7 +4,9 @@ The aim is to deploy an updated version of a container without service
 interruption. We want to keep things light and only use **Podman** or
 **Docker**.
 
-Alternatively, **Docker Compose** may be used [as shown](#docker-compose).
+Alternatively, as shown below, the approach is applicable to
+[**Docker Compose**](#docker-compose), [**Podman Quadlet**](#podman-quadlet),
+etc.
 
 ## Approach
 
@@ -39,7 +41,8 @@ Container hi-0                      Stop
 ## Demo
 
 Here is how to do such a deployment interactively with **Podman**. It works the
-same for **Docker**; just replace `podman` by `docker` in the commands below.
+same for **Docker**; just replace `podman` by `docker` in the following
+commands.
 
 1. First, for the containers to reach each other, set up a **network** with
 
@@ -148,6 +151,11 @@ desired overlap of their lifetimes.
 
 Note that Docker Compose conveniently manages a container network for us, with
 the service names (like `greet`) resolving to the respective containers.
+
+## Podman Quadlet
+
+The same demo can be achieved with Podman Quadlet, see the
+[`podman_quadlet`](podman_quadlet) folder.
 
 ## Reverse proxy
 
